@@ -11,7 +11,13 @@ import com.gcache.entities.Node;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
-
+//O(1)
+/*
+ * {
+ *
+ * }
+ * [a, b, p, q]
+ * */
 @Slf4j
 public class QueueLRUCache implements Cache {
 
@@ -30,6 +36,9 @@ public class QueueLRUCache implements Cache {
 	public <V> V fetch(String key) {
         Node node = cacheStructure.getNodeAt(key);
         Object value = node != null ? node.getValue() : null;
+        if(value != null) {
+            cacheStructure.insert(key, value);
+        }
         return (V)value;
 	}
 
