@@ -33,6 +33,7 @@ public class CacheLinkedList {
     public synchronized void insert(String key, Object item) {
         if(keyWiseMap.containsKey(key)) {
             Node node = keyWiseMap.get(key);
+            node.setValue(item);
             keyWiseMap.remove(key);
             insertAfterTail(node);
         } else {
