@@ -61,6 +61,8 @@ public interface Cache {
     public <V> V fetch(String key);
 
     public List<Object> fetchAll();
+    
+    public int count();
 
 };
 

@@ -51,6 +51,11 @@ public class QueueLRUCache implements Cache {
         return values;
 	}
 
+    @Override
+    public int count(){
+        return fetchAll().size();
+    }
+
 
 };
 
